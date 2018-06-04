@@ -1,0 +1,16 @@
+
+// column nopadding
+.col.nopadding {
+    padding: 0;
+}
+
+// column 20% width
+.row .col.twentytwowidth {
+    @include respond(largescreen) {
+        width: 22%;
+    }
+}
+
+.fullwidth-navswap {
+    width: 100%;
+}

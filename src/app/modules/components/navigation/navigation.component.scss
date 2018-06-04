@@ -1,0 +1,36 @@
+@import '../../../scss/abstracts/mixins';
+
+nav.navigation {
+    height: 100vh;
+
+    @include respond(navswap) {
+        height: 100%;
+        width: 100%;
+    }
+    & .sidenav.sidenav-fixed {
+        position: relative;
+        height: 100vh;
+
+        & .nav-title-desktop > a {
+            color: #eee;
+            font-size: 2em;
+        }
+
+        @include respond(navswap) {
+            position: fixed;
+        }
+    }
+
+    & .brand-logo {
+        position: relative;
+        padding: 0 15px;
+    }
+
+    & .mobilenav {
+        display: none;
+
+        @include respond(navswap) {
+            display: block;
+        }
+    }
+}
