@@ -1,0 +1,14 @@
+// Used to apply standard styling across the profile page
+// This is used to style content that gets initalized after the components have been created.
+
+.weekly-calander-modal {
+
+    & .dropdown-content li > a, 
+    & .dropdown-content li:not(.disabled) > span {
+        color: #fb8c00;
+    }
+    
+    & .select-wrapper input.select-dropdown:focus {
+        border-bottom: 1px solid #fb8c00;
+    }
+}

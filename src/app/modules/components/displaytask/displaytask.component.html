@@ -1,0 +1,5 @@
+<div *ngFor="let task of tasks" class="day-task {{task.day}}" >
+  <h3>{{ task.name }}</h3>
+  <p>{{ task.description }}</p>
+  <p class="day-task__estimate">{{ task.estimate }}</p>
+</div>

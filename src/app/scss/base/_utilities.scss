@@ -11,6 +11,21 @@
     }
 }
 
-.fullwidth-navswap {
-    width: 100%;
+// column set 77.333333% width
+.row .col.seventysevenwidth {
+    @include respond(largescreen) {
+        width: 77.333333%;
+    }
 }
+
+// column when 7 items are in a row for a 12 column grid
+.row .col.sevencolumns {
+    width: 14.28%;
+}
+
+.fullwidth-navswap {
+    @include respond(navswap) {
+        width: 100%;
+    }
+}
+

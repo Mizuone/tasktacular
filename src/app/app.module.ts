@@ -19,4 +19,3 @@ import { TasktacularModule } from './modules/tasktacularmodule/tasktacularmodule
 })
 
 export class AppModule { }
-console.log(TasktacularModule);

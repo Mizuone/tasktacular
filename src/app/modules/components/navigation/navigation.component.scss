@@ -1,15 +1,18 @@
 @import '../../../scss/abstracts/mixins';
 
 nav.navigation {
+    width: inherit;
     height: 100vh;
 
     @include respond(navswap) {
         height: 100%;
         width: 100%;
     }
+
     & .sidenav.sidenav-fixed {
         position: relative;
         height: 100vh;
+        width: inherit;
 
         & .nav-title-desktop > a {
             color: #eee;
@@ -30,7 +33,22 @@ nav.navigation {
         display: none;
 
         @include respond(navswap) {
-            display: block;
+            display: flex;
+            align-items: center;
+        }
+
+        & .sidenav-trigger {
+            position: absolute;
+            float: none;
+        }
+
+        & .dropdown-trigger {
+            margin: 0 18px;
+        }
+
+        & h1 {
+            margin: auto;
+            padding: 5px 0;
         }
     }
 }

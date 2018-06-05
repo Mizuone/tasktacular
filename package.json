@@ -11,6 +11,7 @@
   },
   "private": true,
   "dependencies": {
+    "@angular-redux/store": "^9.0.0",
     "@angular/animations": "^6.0.3",
     "@angular/common": "^6.0.3",
     "@angular/compiler": "^6.0.3",
@@ -23,6 +24,7 @@
     "core-js": "^2.5.4",
     "material-icons": "^0.2.3",
     "materialize-css": "^1.0.0-rc.1",
+    "redux": "^4.0.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

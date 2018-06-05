@@ -1,7 +1,7 @@
 
 @mixin respond($breakpoint) {
     @if $breakpoint == largescreen {
-        @media (max-width: 112.5em) and (min-width: 75em) { @content }
+        @media (max-width: 106.25em) and (min-width: 75em) { @content }
     }
 
     @if $breakpoint == navswap {

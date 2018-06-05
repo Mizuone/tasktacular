@@ -1,0 +1,45 @@
+.day-task {
+    margin-top: 5px;
+    padding: 5px;
+
+    h3 {
+        font-size: 1.2em;
+        text-align: center;
+        color: #333;
+        margin-top: 0;
+        margin-bottom: 5px;
+    }
+
+    p {
+        margin-top: 0;
+        margin-bottom: 5px;
+        color: #333;
+    }
+
+    & &__estimate {
+        color: #666;
+        font-size: 12px;
+    }
+}
+
+.day-task.monday {
+    background-color: #A5D6A7;
+}
+.day-task.tuesday {
+    background-color: #9FA8DA;
+}
+.day-task.wednesday {
+    background-color: #81D4FA;
+}
+.day-task.thursday {
+    background-color: #E6EE9C;
+}
+.day-task.friday {
+    background-color: #EEEEEE;
+}
+.day-task.saturday {
+    background-color: #ef9a9a;
+}
+.day-task.sunday {
+    background-color: #80CBC4;
+}

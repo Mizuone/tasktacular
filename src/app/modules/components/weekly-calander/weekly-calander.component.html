@@ -1,3 +1,83 @@
-<p>
-  weekly-calander works!
-</p>
+<div class="row weekly-calander card">
+  <div class="col day-column sevencolumns">
+     <h2 class="day-header">Monday</h2>
+     <app-displaytask [tasks]="mondayTasks"></app-displaytask>
+  </div>
+  <div class="col day-column sevencolumns">
+   <h2 class="day-header">Tuesday</h2>
+   <app-displaytask [tasks]="tuesdayTasks"></app-displaytask>
+  </div>
+  <div class="col day-column sevencolumns">
+   <h2 class="day-header">Wednesday</h2>
+   <app-displaytask [tasks]="wednesdayTasks"></app-displaytask>     
+  </div>
+  <div class="col day-column sevencolumns">
+   <h2 class="day-header">Thursday</h2>
+   <app-displaytask [tasks]="thursdayTasks"></app-displaytask>     
+  </div>
+  <div class="col day-column sevencolumns">
+   <h2 class="day-header">Friday</h2>
+   <app-displaytask [tasks]="fridayTasks"></app-displaytask>    
+  </div>
+  <div class="col day-column sevencolumns">
+   <h2 class="day-header">Saturday</h2>
+   <app-displaytask [tasks]="saturdayTasks"></app-displaytask>     
+  </div>
+  <div class="col day-column sevencolumns">
+     <h2 class="day-header">Sunday</h2>
+     <app-displaytask [tasks]="sundayTasks"></app-displaytask> 
+  </div>
+
+  <a class="btn-floating btn-large waves-effect waves-light orange darken-1 modal-trigger weekly-calander-addtaskbtn" data-target="weekly-calander-modal"><i class="material-icons">add</i></a>
+
+   <!-- Weekly Calander Modal Structure -->
+   <div id="weekly-calander-modal" class="weekly-calander-modal modal">
+    <div class="modal-content">
+
+      <div class="row">
+        <form class="col s10">
+          <div class="row">
+            <div class="input-field col s3">
+              <input id="taskname" type="text" data-length="10">
+              <label for="taskname">Task Name</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="taskdescription" class="materialize-textarea" data-length="120"></textarea>
+              <label for="taskdescription">Task Description</label>
+            </div>
+          </div>
+
+          <div class="row">
+
+            <div class="input-field col s12">
+                <select>
+                  <option value="" disabled="disabled" selected>Choose your Day</option>
+                  <option value="1">Monday</option>
+                  <option value="2">Tuesday</option>
+                  <option value="3">Wednesday</option>
+                  <option value="4">Thursday</option>
+                  <option value="5">Friday</option>
+                  <option value="6">Saturday</option>
+                  <option value="7">Sunday</option>
+                </select>
+                <label>Day</label>
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="input-field col s3">
+                <input id="taskestimatedtime" type="text" data-length="10">
+                <label for="taskestimatedtime">Estimated Time</label>
+              </div>
+            </div>
+        </form>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-close waves-effect waves-light btn orange darken-1">Add Task</a>
+    </div>
+  </div>
+</div>

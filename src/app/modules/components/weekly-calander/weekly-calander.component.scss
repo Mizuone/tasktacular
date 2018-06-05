@@ -1,0 +1,41 @@
+.weekly-calander {
+    margin: 4em;
+    height: 800px;
+
+    & .weekly-calander-addtaskbtn {
+        position: absolute;
+        top: -2em;
+        right: 2em;
+    }
+
+    & .day-column {
+        border-left: 1px solid #eee;
+        height: 100%;
+
+        & .day-header {
+            font-size: 1.5em;
+            color: #333;
+            margin: 0;
+            text-align: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+    }
+
+    & .weekly-calander-modal {
+
+        & input[type=text]:not(.browser-default):focus:not([readonly]),
+        & textarea.materialize-textarea:focus:not([readonly]),
+        & .select-wrapper input.select-dropdown:focus {
+            border-bottom: 1px solid #fb8c00;
+            box-shadow: 0 1px 0 0 #fb8c00;
+        }
+
+        & input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+        & textarea.materialize-textarea:focus:not([readonly]) + label
+         {
+            color: #fb8c00;
+        }
+    }
+
+}
