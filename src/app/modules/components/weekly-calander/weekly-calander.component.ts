@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import M from 'node_modules/materialize-css/dist/js/materialize';
 import { ProfileweeklytasksService } from '../../services/profileweeklytasks.service';
-
+import { TaskselectedService } from '../../services/taskselected.service';
 
 @Component({
   selector: 'app-weekly-calander',
@@ -10,11 +10,65 @@ import { ProfileweeklytasksService } from '../../services/profileweeklytasks.ser
   styleUrls: ['./weekly-calander.component.scss']
 })
 export class WeeklyCalanderComponent implements OnInit {
-  constructor(private weeklyTaskService: ProfileweeklytasksService) {}
+
+  // Model Two-way data binding Properties
+  taskName: string;
+  taskDescription: string;
+  taskDay: string;
+  taskEstimate: string;
+
+  constructor(private weeklyTaskService: ProfileweeklytasksService, private selectedTask: TaskselectedService) {}
 
   ngOnInit() {
     this.initializeModalOnBtnClick();
     this.formModalSelectOptions();
+
+    this.selectedTask.selected$.subscribe(task => this.selectTask(task));
+  }
+
+
+  private selectTask(task) {
+    
+  }
+
+  public addTask() {
+    console.log(this.taskName, this.taskDescription, this.taskDay, this.taskEstimate);
+
+    this.tasks.push({
+      name: this.taskName,
+      description: this.taskDescription,
+      day: this.taskDay,
+      estimate: this.taskEstimate
+    });
+    
+    this.sortedTasks = this.getSortedTasks();
+    this.clearTwoWayProps();
+    this.resetCalanderModelForm();
+  }
+
+  private clearTwoWayProps() {
+    this.taskName = '';
+    this.taskDescription = '';
+    this.taskDay = '';
+    this.taskEstimate = '';
+  }
+
+  private resetCalanderModelForm() {
+    <HTMLFormElement>document.querySelector('.weekly-calander-modal form')['reset']();
+  }
+
+  private getSortedTasks(): Object {
+
+    return {
+      mondayTasks: this.getTasksByDay('monday'),
+      tuesdayTasks: this.getTasksByDay('tuesday'),
+      wednesdayTasks: this.getTasksByDay('wednesday'),
+      thursdayTasks: this.getTasksByDay('thursday'),
+      fridayTasks: this.getTasksByDay('friday'),
+      saturdayTasks: this.getTasksByDay('saturday'),
+      sundayTasks: this.getTasksByDay('sunday')
+    }
+
   }
 
   private getWeeklyTasks(): Array<Object> {
@@ -29,7 +83,6 @@ export class WeeklyCalanderComponent implements OnInit {
 
   }
 
-
   private initializeModalOnBtnClick(): void {
     let modal = document.querySelector('.weekly-calander-modal');
     let instance = M.Modal.init(modal, {});
@@ -40,14 +93,8 @@ export class WeeklyCalanderComponent implements OnInit {
     let instances = M.FormSelect.init(elems, {});
   }
 
+  // Properties to intialize on startup
   private tasks = this.getWeeklyTasks();
-
-  public mondayTasks = this.getTasksByDay('monday');
-  public tuesdayTasks = this.getTasksByDay('tuesday');
-  public wednesdayTasks = this.getTasksByDay('wednesday');
-  public thursdayTasks = this.getTasksByDay('thursday');
-  public fridayTasks = this.getTasksByDay('friday');
-  public saturdayTasks = this.getTasksByDay('saturday');
-  public sundayTasks = this.getTasksByDay('sunday');
+  public sortedTasks: object = this.getSortedTasks();
 
 }

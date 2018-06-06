@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
+import { EventEmitter } from 'protractor';
 
 @Component({
   selector: 'app-displaytask',
@@ -9,7 +10,14 @@ export class DisplaytaskComponent implements OnInit {
 
   @Input() tasks: Array<Object>
 
+  @Output('taskMenu')
+  taskMenuEmitter = new EventEmitter();
+
   constructor() { }
+
+  public taskMenu(task) {
+    this.taskMenuEmitter.emit(task);
+  }
 
   ngOnInit() {
   }

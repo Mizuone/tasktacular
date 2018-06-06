@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 
 import { ProfileComponent } from '../pages/profile/profile.page';
 import { WeeklyCalanderComponent } from '../components/weekly-calander/weekly-calander.component';
@@ -22,7 +24,8 @@ import { DisplaytaskComponent } from '../components/displaytask/displaytask.comp
     DisplaytaskComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports: [
     ProfileComponent
