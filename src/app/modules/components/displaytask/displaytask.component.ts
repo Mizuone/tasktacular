@@ -1,5 +1,4 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { EventEmitter } from 'protractor';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-displaytask',
@@ -7,16 +6,29 @@ import { EventEmitter } from 'protractor';
   styleUrls: ['./displaytask.component.scss']
 })
 export class DisplaytaskComponent implements OnInit {
+  // TODO fix task menu not disappearing when clicking on different task
+  public taskMenuOpen: boolean;
 
-  @Input() tasks: Array<Object>
+  @Input() tasks: Array<Object>;
 
-  @Output('taskMenu')
+  @Output()
   taskMenuEmitter = new EventEmitter();
 
   constructor() { }
 
-  public taskMenu(task) {
-    this.taskMenuEmitter.emit(task);
+  public taskMenu(event: Event, task: any) {
+    if (this.taskMenuOpen) {
+      this.taskMenuOpen = false;
+    } else {
+      event.stopPropagation();
+      this.taskMenuOpen = true;
+    }
+  }
+
+  handleTaskMenuAction(actionInfo: any) {
+    if (actionInfo) {
+      this.taskMenuOpen = false;
+    }
   }
 
   ngOnInit() {
