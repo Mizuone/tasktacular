@@ -11,6 +11,8 @@ import { PomodorosdonecardComponent } from '../components/pomodorosdonecard/pomo
 import { ActiveprojectcardComponent } from '../components/activeprojectcard/activeprojectcard.component';
 import { NavigationComponent } from '../components/navigation/navigation.component';
 import { DisplaytaskComponent } from '../components/displaytask/displaytask.component';
+import { TaskmenuComponent } from '../components/taskmenu/taskmenu.component';
+
 
 @NgModule({
   declarations: [
@@ -21,7 +23,8 @@ import { DisplaytaskComponent } from '../components/displaytask/displaytask.comp
     SubtaskscardComponent,
     PomodorosdonecardComponent,
     ActiveprojectcardComponent,
-    DisplaytaskComponent
+    DisplaytaskComponent,
+    TaskmenuComponent
   ],
   imports: [
     CommonModule,

@@ -11,6 +11,10 @@ import { TaskselectedService } from '../../services/taskselected.service';
 })
 export class WeeklyCalanderComponent implements OnInit {
 
+  // Properties to intialize on startup
+  private tasks = this.getWeeklyTasks();
+  public sortedTasks: object = this.getSortedTasks();
+
   // Model Two-way data binding Properties
   taskName: string;
   taskDescription: string;
@@ -28,7 +32,11 @@ export class WeeklyCalanderComponent implements OnInit {
 
 
   private selectTask(task) {
-    
+
+  }
+
+  public taskMenuEmitter(task: any) {
+    console.log(task, 'task');
   }
 
   public addTask() {
@@ -40,7 +48,7 @@ export class WeeklyCalanderComponent implements OnInit {
       day: this.taskDay,
       estimate: this.taskEstimate
     });
-    
+
     this.sortedTasks = this.getSortedTasks();
     this.clearTwoWayProps();
     this.resetCalanderModelForm();
@@ -84,17 +92,13 @@ export class WeeklyCalanderComponent implements OnInit {
   }
 
   private initializeModalOnBtnClick(): void {
-    let modal = document.querySelector('.weekly-calander-modal');
-    let instance = M.Modal.init(modal, {});
+    const modal = document.querySelector('.weekly-calander-modal');
+    const instance = M.Modal.init(modal, {});
   }
 
   private formModalSelectOptions(): void {
-    let elems = document.querySelectorAll('select');
-    let instances = M.FormSelect.init(elems, {});
+    const elems = document.querySelectorAll('select');
+    const instances = M.FormSelect.init(elems, {});
   }
-
-  // Properties to intialize on startup
-  private tasks = this.getWeeklyTasks();
-  public sortedTasks: object = this.getSortedTasks();
 
 }

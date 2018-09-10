@@ -1,5 +1,11 @@
-<div *ngFor="let task of tasks" class="day-task {{task.day}}" >
+<div *ngFor="let task of tasks" class="day-task {{task.day}}" (click)="taskMenu($event, task)">
   <h3>{{ task.name }}</h3>
   <p>{{ task.description }}</p>
   <p class="day-task__estimate">{{ task.estimate }}</p>
 </div>
+
+<app-taskmenu
+  [taskDetails]="task"
+(taskMenuAction)="handleTaskMenuAction($event)"
+  *ngIf="taskMenuOpen">
+</app-taskmenu>
